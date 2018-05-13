@@ -58,6 +58,50 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "agenda", nul
         return id
     }
 
+    fun checkRow(tabela: String,id: Long, login: String, senha: String): Boolean{
+
+        val db = this.readableDatabase
+        var hasUser: Boolean = false
+
+        when (tabela) {
+            Login.TABLE_NAME -> {
+
+                val cursor = db.query(Login.TABLE_NAME,
+                        arrayOf(Login.COLUMN_ID, Login.COLUMN_LOGIN, Login.COLUMN_SENHA, Login.COLUMN_TIMESTAMP),
+                        Login.COLUMN_LOGIN + "=?" + " AND " + Login.COLUMN_SENHA + "=?",
+                        arrayOf(login, senha), null, null, null, null)
+
+                if (cursor != null && cursor.moveToFirst()) {
+                    hasUser = true
+                }
+            }
+
+            Contato.TABLE_NAME -> {
+                val cursor = db.query(Contato.TABLE_NAME,
+                        arrayOf(Contato.COLUMN_ID, Contato.COLUMN_NOME, Contato.COLUMN_TELEFONE, Contato.COLUMN_EMAIL, Contato.COLUMN_TIMESTAMP),
+                        Contato.COLUMN_ID + "=?",
+                        arrayOf(id.toString()), null, null, null, null)
+
+                if (cursor != null && cursor.moveToFirst()) {
+                    hasUser = true
+                }
+            }
+            Compromisso.TABLE_NAME -> {
+                val cursor = db.query(Compromisso.TABLE_NAME,
+                        arrayOf(Compromisso.COLUMN_ID, Compromisso.COLUMN_DESCRICAO, Compromisso.COLUMN_DATA, Compromisso.COLUMN_HORA, Compromisso.COLUMN_TIMESTAMP),
+                        Compromisso.COLUMN_ID + "=?",
+                        arrayOf(id.toString()), null, null, null, null)
+
+                if (cursor != null && cursor.moveToFirst()) {
+                    hasUser = true
+                }
+            }
+        }
+
+        db.close()
+        return hasUser
+    }
+
     // Obtem os dados de cada tabela por objeto
     fun getRowObj(tabela: String, id: Long): Any? {
 
