@@ -10,10 +10,6 @@ import net.sytes.roneymaia.agenda.Model.Login
 import java.util.*
 import kotlin.collections.ArrayList
 
-/**
- * Created by ravi on 15/03/18.
- */
-
 class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "agenda", null, 1) {
 
     val DATABASE_TABELAS = arrayOf(Login.TABLE_NAME, Contato.TABLE_NAME, Compromisso.TABLE_NAME)
