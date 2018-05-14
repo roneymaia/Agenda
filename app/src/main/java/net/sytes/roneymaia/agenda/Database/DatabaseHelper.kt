@@ -176,7 +176,7 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "agenda", nul
     }
 
     // Obtem os dados de todos os objetos
-    fun getAllRowsObjs(tabela: String): List<Any> {
+    fun getAllRowsObjs(tabela: String): ArrayList<Any> {
 
         val db = this.readableDatabase
         var objetos: ArrayList<Any> = ArrayList<Any>()

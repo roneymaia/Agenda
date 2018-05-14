@@ -35,8 +35,11 @@
         <activity
             android:name=".NovoContatoActivity"
             android:label="@string/novocontato" />
-        <activity android:name=".EditarContatoActivity"
+        <activity
+            android:name=".EditarContatoActivity"
             android:label="@string/contato" />
+        <activity android:name=".NovoCompromissoActivity"
+            android:label="@string/compromisso" />
     </application>
 
 </manifest>

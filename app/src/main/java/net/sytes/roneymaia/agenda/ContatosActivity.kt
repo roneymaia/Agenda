@@ -84,7 +84,6 @@ class ContatosActivity : AppCompatActivity() {
 
 
     fun altEmptyContatos() {
-        // you can check notesList.size() > 0
 
         if (this@ContatosActivity.db!!.getTabCountObjs(Contato.TABLE_NAME) > 0) {
             //noNotesView.setVisibility(View.GONE)
@@ -127,5 +126,10 @@ class ContatosActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean{
         this@ContatosActivity.finish()
         return true
+    }
+
+    override fun onDestroy() {
+        DbSingleton.idLong = 0
+        super.onDestroy()
     }
 }

@@ -1,6 +1,7 @@
 package net.sytes.roneymaia.agenda.Adapters
 
 import android.content.Context
+import android.content.res.Resources
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,7 @@ import java.text.SimpleDateFormat
 class CompromissoAdapter(context: Context, compromissos: List<Compromisso>): RecyclerView.Adapter<CompromissoAdapter.MyViewHolder>() {
 
     var context: Context? = null
-    var compromissos: List<Compromisso>? = arrayListOf()
+    var compromissos: ArrayList<Compromisso>? = arrayListOf()
 
     class MyViewHolder(view: View): RecyclerView.ViewHolder(view) {
         var compromisso: TextView? = null
@@ -34,7 +35,7 @@ class CompromissoAdapter(context: Context, compromissos: List<Compromisso>): Rec
 
     init {
         this@CompromissoAdapter.context = context
-        this@CompromissoAdapter.compromissos = compromissos
+        this@CompromissoAdapter.compromissos = compromissos as ArrayList<Compromisso>
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -48,7 +49,7 @@ class CompromissoAdapter(context: Context, compromissos: List<Compromisso>): Rec
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val compromisso = compromissos!!.get(position)
 
-        holder.compromisso!!.setText(compromisso.id)
+        holder.compromisso!!.setText("Compromisso " + compromisso.id.toString())
         holder.descricao!!.setText(compromisso.descricao)
         holder.data!!.setText(compromisso.data)
         holder.hora!!.setText(compromisso.hora)
