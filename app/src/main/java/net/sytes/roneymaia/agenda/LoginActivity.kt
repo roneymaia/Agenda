@@ -1,19 +1,25 @@
 package net.sytes.roneymaia.agenda
 
+import android.Manifest
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
+import android.widget.EditText
 import net.sytes.roneymaia.agenda.Database.DatabaseHelper
 import net.sytes.roneymaia.agenda.Model.Login
 import net.sytes.roneymaia.agenda.Utils.AgendaUtils
 import net.sytes.roneymaia.agenda.Utils.AgendaValidator
+import android.support.v4.app.ActivityCompat
+import android.content.pm.PackageManager
+import android.support.v4.content.ContextCompat
+
+
 
 class LoginActivity : AppCompatActivity() {
 
-    var login: TextView? = null
-    var senha: TextView? = null
+    var login: EditText? = null
+    var senha: EditText? = null
     var entrar: Button? = null
     var cadastrar: Button? = null
     var db: DatabaseHelper? = null
@@ -22,8 +28,18 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        this@LoginActivity.login = findViewById(R.id.txtLoginNome) as TextView
-        this@LoginActivity.senha = findViewById(R.id.txtLoginSenha) as TextView
+        val checkPermission = ContextCompat.checkSelfPermission(this@LoginActivity, Manifest.permission.CALL_PHONE)
+        val REQUEST_CALL_PHONE = 1
+
+        if (checkPermission != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(
+                    this,
+                    arrayOf(Manifest.permission.CALL_PHONE),
+                    REQUEST_CALL_PHONE)
+        }
+
+        this@LoginActivity.login = findViewById(R.id.txtLoginNome) as EditText
+        this@LoginActivity.senha = findViewById(R.id.txtLoginSenha) as EditText
         this@LoginActivity.entrar = findViewById(R.id.btnLoginEntrar) as Button
         this@LoginActivity.cadastrar = findViewById(R.id.btnLoginCadastrar) as Button
 
@@ -56,4 +72,6 @@ class LoginActivity : AppCompatActivity() {
 
 
     }
+
+
 }

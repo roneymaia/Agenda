@@ -3,6 +3,7 @@ package net.sytes.roneymaia.agenda
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.TextView
 
 class AgendaActivity : AppCompatActivity() {

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.KeyEvent
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import net.sytes.roneymaia.agenda.Database.DatabaseHelper
 import net.sytes.roneymaia.agenda.Model.Login
@@ -12,8 +13,8 @@ import net.sytes.roneymaia.agenda.Utils.AgendaValidator
 
 class CadastrarLoginActivity : AppCompatActivity() {
 
-    var login: TextView? = null
-    var senha: TextView? = null
+    var login: EditText? = null
+    var senha: EditText? = null
     var cadastrar: Button? = null
     var db: DatabaseHelper? = null
 
@@ -23,8 +24,8 @@ class CadastrarLoginActivity : AppCompatActivity() {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        this@CadastrarLoginActivity.login = findViewById(R.id.txtCadastrarLoginNome) as TextView
-        this@CadastrarLoginActivity.senha = findViewById(R.id.txtCadastrarLoginSenha) as TextView
+        this@CadastrarLoginActivity.login = findViewById(R.id.txtCadastrarLoginNome) as EditText
+        this@CadastrarLoginActivity.senha = findViewById(R.id.txtCadastrarLoginSenha) as EditText
         this@CadastrarLoginActivity.cadastrar = findViewById(R.id.btnCadastrarLoginCadastrar) as Button
 
         this@CadastrarLoginActivity.db = DatabaseHelper(this@CadastrarLoginActivity)

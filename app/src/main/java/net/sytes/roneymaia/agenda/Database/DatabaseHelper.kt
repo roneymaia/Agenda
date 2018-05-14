@@ -355,12 +355,12 @@ class DatabaseHelper(context: Context) : SQLiteOpenHelper(context, "agenda", nul
             }
 
             Contato.TABLE_NAME -> {
-                val contato = objeto as Login
+                val contato = objeto as Contato
                 db.delete(Contato.TABLE_NAME, Contato.COLUMN_ID + " = ?",
                         arrayOf(contato.id.toString()))
             }
             Compromisso.TABLE_NAME -> {
-                val compromisso = objeto as Login
+                val compromisso = objeto as Compromisso
                 db.delete(Compromisso.TABLE_NAME, Compromisso.COLUMN_ID + " = ?",
                         arrayOf(compromisso.id.toString()))
             }

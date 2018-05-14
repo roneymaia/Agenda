@@ -4,51 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CadastrarLoginActivity">
+    android:visibility="visible"
+    tools:context=".EditarContatoActivity">
 
-    <EditText
-        android:id="@+id/txtCadastrarLoginNome"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/txtEditarContatoNome"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="64dp"
-        android:ems="10"
-        android:hint="Login"
-        android:inputType="textPersonName"
+        android:layout_marginTop="24dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/txtCadastrarLoginSenha"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/txtEditarContatoLigar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="32dp"
-        android:ems="10"
-        android:hint="Senha"
-        android:inputType="textPersonName"
+        android:text="Ligar"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCadastrarLoginNome" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEditarContatoNome" />
 
-    <Button
-        android:id="@+id/btnCadastrarLoginCadastrar"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/txtEditarContatoEmail"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:text="Cadastrar"
+        android:layout_marginTop="32dp"
+        android:text="Enviar Email"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtCadastrarLoginSenha"
-        app:layout_constraintVertical_bias="0.013" />
+        app:layout_constraintTop_toBottomOf="@+id/txtEditarContatoLigar"
+        app:layout_constraintVertical_bias="0.014" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/colorPrimary"
+        android:visibility="visible"
+        app:layout_constraintTop_toBottomOf="@+id/txtEditarContatoNome"
+        tools:layout_editor_absoluteX="8dp" />
 </android.support.constraint.ConstraintLayout>

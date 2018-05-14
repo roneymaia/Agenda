@@ -47,7 +47,7 @@ class ContatoAdapter(context: Context, contatos: List<Contato>): RecyclerView.Ad
         val contato = contatos!!.get(position)
 
         holder.nome!!.setText(contato.nome)
-        holder.telefone!!.setText(contato.nome)
+        holder.telefone!!.setText(contato.telefone)
         holder.email!!.setText(contato.email)
     }
 
