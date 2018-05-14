@@ -28,6 +28,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        this@LoginActivity.setTitle(R.string.login)
+
         val checkPermission = ContextCompat.checkSelfPermission(this@LoginActivity, Manifest.permission.CALL_PHONE)
         val REQUEST_CALL_PHONE = 1
 
